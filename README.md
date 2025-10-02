@@ -1,0 +1,60 @@
+# Teste Avantsoft - API RESTful
+
+Uma API desenvolvida para o teste técnico da Avantsoft, utilizando Flask e SQLAlchemy para criar um serviço RESTful de gerenciamento de estudantes.
+
+## Principais Tecnologias
+
+- **Flask**: Microframework para desenvolvimento web em Python, utilizado para construir a base da API.
+- **SQLAlchemy**: ORM (Object Relational Mapper) para facilitar a comunicação com o banco de dados.
+- **Pipenv**: Gerenciador de dependências do projeto e do ambiente virtual.
+
+## Estrutura do Projeto
+
+```tree
+.
+├─── api/
+├─── services/
+├─── models/
+├─── app.py
+└─── config.py
+````
+
+- **`api/`**: Administra todos os endpoints da API.
+- **`services/`**: Administra as regras de negócio da API.
+- **`models/`**: Define os modelos de dados utilizando SQLAlchemy.
+- **`app.py`**: Inicializador do servidor Flask.
+- **`config.py`**: Configurações do servidor flask.
+
+## Como Executar
+
+Siga os passos abaixo para configurar e executar o projeto em seu ambiente local.
+
+1. **Clone o repositório:**
+
+    ```bash
+    git clone https://github.com/Augustocfq/teste_avantsoft.git
+    ```
+
+2. **Instale o Pipenv (caso não o tenha):**
+
+    ```bash
+    pip install pipenv
+    ```
+
+3. **Instale as dependências do projeto:**
+
+    ```bash
+    pipenv install
+    ```
+
+4. **Ative o ambiente virtual:**
+
+    ```bash
+    pipenv shell
+    ```
+
+5. **Inicie o servidor de desenvolvimento:**
+
+    ```bash
+    python app.py
+    ```
