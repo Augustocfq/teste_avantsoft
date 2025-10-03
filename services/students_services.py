@@ -1,5 +1,6 @@
-from models import *
 from config import db
+from models import Student
+from utils import detector_de_repeticao
 
 def add_student_service(body: dict) -> tuple:
 
@@ -53,6 +54,7 @@ def get_students_service() -> tuple:
     Returns:
         (tuple): Uma lista de estudantes cadastrados e um código de status HTTP
     """
+
     try:
         estudantes = Student.query.all()
         
@@ -61,7 +63,8 @@ def get_students_service() -> tuple:
             lista_estudantes.append({
                 "id": estudante.id,
                 "nome": estudante.nome,
-                "nota": estudante.nota
+                "nota": estudante.nota,
+                'primeira letra do nome que não se repete.': detector_de_repeticao(estudante.nome)
             })
 
         return lista_estudantes, 200
@@ -79,18 +82,20 @@ def get_student_by_id_service(id: int) -> tuple:
     Returns:
         (tuple): Um dicionário com os dados do estudante e um código de status http.
     """
+    
     try:
         try:
-            student = Student.query.get(
+            estudante = Student.query.get(
                 int(id)
             )
         except (ValueError, TypeError):
             return {"ERRO": "O id deve ser um valor inteiro."}, 400
 
         mensagem = {
-            "id": student.id,
-            "nome": student.nome,
-            "nota": student.nota
+            "id": estudante.id,
+            "nome": estudante.nome,
+            "nota": estudante.nota,
+            'primeira letra do nome que não se repete.': detector_de_repeticao(estudante.nome)
         }
         
         return mensagem, 200

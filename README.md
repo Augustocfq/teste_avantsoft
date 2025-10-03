@@ -94,17 +94,26 @@ eg. RESPONSE:
     {
         "id": 1,
         "nome": "Gabriel",
-        "nota": 9.2
+        "nota": 9.2,
+        "primeira letra do nome que não se repete.": "g"
     },
     {
         "id": 2,
         "nome": "Marcos",
-        "nota": 5.2
+        "nota": 5.2,
+        "primeira letra do nome que não se repete.": "m"
     },
     {
         "id": 3,
         "nome": "Augusto",
-        "nota": 10.0
+        "nota": 10.0,
+        "primeira letra do nome que não se repete.": "a"
+    },
+    {
+        "id": 4,
+        "nome": "Anna",
+        "nota": 2.1,
+        "primeira letra do nome que não se repete.": "_"
     }
 ]
 ```
@@ -115,8 +124,9 @@ eg. RESPONSE:
 
 ```json
 {
-    "id": 4,
+    "id": 3,
     "nome": "Augusto",
-    "nota": 10.0
+    "nota": 10.0,
+    "primeira letra do nome que não se repete.": "a"
 }
 ```
