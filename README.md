@@ -17,7 +17,7 @@ Uma API desenvolvida para o teste técnico da Avantsoft, utilizando Flask e SQLA
 ├─── models/
 ├─── app.py
 └─── config.py
-````
+```
 
 - **`api/`**: Administra todos os endpoints da API.
 - **`services/`**: Administra as regras de negócio da API.
@@ -58,3 +58,29 @@ Siga os passos abaixo para configurar e executar o projeto em seu ambiente local
     ```bash
     python app.py
     ```
+
+## Uso
+
+### students endpoint
+
+#### POST <url>/question/get_filtered
+
+eg. REQUEST:
+
+```json
+{
+    "nome": "Gabriel",
+    "nota": 9.2
+}
+```
+
+eg. RESPONSE:
+
+```json
+{
+    "id": 2,
+    "message": "Estudante adicionado com sucesso.",
+    "nome": "Gabriel",
+    "nota": 9.2
+}
+```
