@@ -9,3 +9,9 @@ def add_student_route():
     
     response_data, status_code = add_student_service(body)
     return jsonify(response_data), status_code
+
+@student_route.route('/students', methods=['GET'])
+def get_students_route():
+    
+    response_data, status_code = get_students_service()
+    return jsonify(response_data), status_code

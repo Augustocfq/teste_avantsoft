@@ -63,7 +63,7 @@ Siga os passos abaixo para configurar e executar o projeto em seu ambiente local
 
 ### students endpoint
 
-#### POST <url>/question/get_filtered
+#### POST .../students
 
 eg. REQUEST:
 
@@ -83,4 +83,28 @@ eg. RESPONSE:
     "nome": "Gabriel",
     "nota": 9.2
 }
+```
+
+#### GET .../students
+
+eg. RESPONSE:
+
+```json
+[
+    {
+        "id": 1,
+        "nome": "Gabriel",
+        "nota": 9.2
+    },
+    {
+        "id": 2,
+        "nome": "Marcos",
+        "nota": 5.2
+    },
+    {
+        "id": 3,
+        "nome": "Augusto",
+        "nota": 10.0
+    }
+]
 ```
