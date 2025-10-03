@@ -9,7 +9,7 @@ def add_student_service(body: dict) -> tuple:
     Args:
         body (dict): Dicionário com os campos 'nome' e 'nota'.
     Returns:
-        (tuple): Um dicionário com os dados do estudante recem adicionado e um código de status http.
+        (tuple): Um dicionário com os dados do estudante recem adicionado e um código de status HTTP.
     Raises:
         ERRO: Caso algum dos campos não exista ou a nota seja inválida.
     """
@@ -51,7 +51,7 @@ def get_students_service() -> tuple:
     Retorna uma lista com todos os etudantes cadastrados
 
     Returns:
-        tuple: Uma lista de estudantes cadastrados e um código de status http
+        (tuple): Uma lista de estudantes cadastrados e um código de status HTTP
     """
     try:
         estudantes = Student.query.all()
@@ -65,6 +65,35 @@ def get_students_service() -> tuple:
             })
 
         return lista_estudantes, 200
+
+    except Exception as e:
+        db.session.rollback()
+        return {"ERRO": f"Um erro inesperado aconteceu: {e}"}, 500
+    
+def get_student_by_id_service(id: int) -> tuple:
+    """
+    Retorna um estudante baseado em seu id
+
+    Args:
+        id (int): Chave primária de um registro de estudante no banco de dados.
+    Returns:
+        (tuple): Um dicionário com os dados do estudante e um código de status http.
+    """
+    try:
+        try:
+            student = Student.query.get(
+                int(id)
+            )
+        except (ValueError, TypeError):
+            return {"ERRO": "O id deve ser um valor inteiro."}, 400
+
+        mensagem = {
+            "id": student.id,
+            "nome": student.nome,
+            "nota": student.nota
+        }
+        
+        return mensagem, 200
 
     except Exception as e:
         db.session.rollback()

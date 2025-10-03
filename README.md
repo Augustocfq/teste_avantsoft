@@ -108,3 +108,15 @@ eg. RESPONSE:
     }
 ]
 ```
+
+#### GET .../students/{id}
+
+eg. RESPONSE:
+
+```json
+{
+    "id": 4,
+    "nome": "Augusto",
+    "nota": 10.0
+}
+```
